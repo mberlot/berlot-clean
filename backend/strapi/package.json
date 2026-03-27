@@ -1,0 +1,28 @@
+{
+  "name": "cleaning-ecommerce-cms",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Strapi CMS for Cleaning Products E-commerce Template",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi",
+    "seed": "node seeds/seed-data.js",
+    "seed:category-images": "node scripts/seed-category-images.js"
+  },
+  "dependencies": {
+    "@strapi/plugin-users-permissions": "^5.0.0",
+    "@strapi/provider-upload-cloudinary": "^5.40.0",
+    "@strapi/strapi": "^5.0.0",
+    "better-sqlite3": "^12.8.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.3",
+    "styled-components": "^6.3.12"
+  },
+  "engines": {
+    "node": ">=18.0.0 <=22.x.x",
+    "npm": ">=6.0.0"
+  }
+}

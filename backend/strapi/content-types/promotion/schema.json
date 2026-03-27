@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "promotions",
+  "info": {
+    "singularName": "promotion",
+    "pluralName": "promotions",
+    "displayName": "Promotion",
+    "description": "Time-limited promotional banner"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "banner": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "mobileBanner": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "startDate": {
+      "type": "datetime"
+    },
+    "endDate": {
+      "type": "datetime"
+    },
+    "ctaLabel": {
+      "type": "string",
+      "default": "Ver oferta"
+    },
+    "ctaUrl": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": ["hero", "banner", "popup", "ribbon"],
+      "default": "banner"
+    },
+    "sortOrder": {
+      "type": "integer",
+      "default": 0
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "textColor": {
+      "type": "string"
+    }
+  }
+}

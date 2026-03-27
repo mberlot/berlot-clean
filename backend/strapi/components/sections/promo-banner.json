@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_sections_promo_banners",
+  "info": {
+    "displayName": "Promo Banner",
+    "description": "Smaller promotional banner card"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "ctaLabel": {
+      "type": "string",
+      "default": "Ver más"
+    },
+    "ctaUrl": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "#f0f9ff"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

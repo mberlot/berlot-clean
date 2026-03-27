@@ -1,0 +1,46 @@
+{
+  "collectionName": "components_shared_banners",
+  "info": {
+    "displayName": "Banner",
+    "description": "A promotional banner with image, title, and CTA"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 150
+    },
+    "subtitle": {
+      "type": "string",
+      "maxLength": 250
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "mobileImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "linkUrl": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "linkLabel": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "backgroundColor": {
+      "type": "string",
+      "maxLength": 20
+    },
+    "textColor": {
+      "type": "string",
+      "maxLength": 20
+    }
+  }
+}

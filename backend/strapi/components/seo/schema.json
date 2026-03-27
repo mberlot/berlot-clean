@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_shared_seos",
+  "info": {
+    "displayName": "Seo",
+    "description": "Reusable SEO meta block"
+  },
+  "options": {},
+  "attributes": {
+    "metaTitle": {
+      "type": "string",
+      "required": true,
+      "maxLength": 60
+    },
+    "metaDescription": {
+      "type": "string",
+      "required": true,
+      "maxLength": 160
+    },
+    "keywords": {
+      "type": "string"
+    },
+    "metaRobots": {
+      "type": "string",
+      "default": "index, follow"
+    },
+    "ogTitle": {
+      "type": "string"
+    },
+    "ogDescription": {
+      "type": "string"
+    },
+    "ogImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "canonicalURL": {
+      "type": "string"
+    }
+  }
+}

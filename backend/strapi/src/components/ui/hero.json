@@ -1,0 +1,46 @@
+{
+  "collectionName": "components_ui_heroes",
+  "info": {
+    "displayName": "Hero",
+    "description": "Full-width hero section with media, title, description and CTA"
+  },
+  "options": {},
+  "attributes": {
+    "titlePrimary": {
+      "type": "string",
+      "required": true,
+      "maxLength": 120
+    },
+    "titleHighlight": {
+      "type": "string",
+      "maxLength": 120
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 400
+    },
+    "ctaText": {
+      "type": "string",
+      "maxLength": 60
+    },
+    "ctaLink": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "heroMedia": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images", "files"]
+    },
+    "heroMediaAlt": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "layout": {
+      "type": "enumeration",
+      "enum": ["image-right", "image-left"],
+      "default": "image-right"
+    }
+  }
+}

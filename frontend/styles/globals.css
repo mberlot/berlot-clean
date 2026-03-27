@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter:    'Inter',           system-ui, sans-serif;
+    --font-playfair: 'Playfair Display', Georgia, serif;
+    --font-ibm-mono: 'IBM Plex Mono',   ui-monospace, monospace;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ivory text-text-ink antialiased;
+  }
+
+  /* Focus styles */
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-400 ring-offset-2;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400;
+  }
+}
+
+@layer components {
+  /* Container helper */
+  .section {
+    @apply container mx-auto px-4;
+  }
+
+  /* Card */
+  .card {
+    @apply bg-white rounded-2xl border border-gray-100 shadow-sm;
+  }
+
+  /* Prose overrides for Strapi rich text */
+  .prose h2 {
+    @apply text-xl font-bold text-gray-900;
+  }
+  .prose p {
+    @apply text-gray-600 leading-relaxed;
+  }
+  .prose ul {
+    @apply list-disc pl-5 space-y-1;
+  }
+}

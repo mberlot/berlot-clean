@@ -1,0 +1,46 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_sections",
+  "info": {
+    "singularName": "home-section",
+    "pluralName": "home-sections",
+    "displayName": "Home Section",
+    "description": "Configurable homepage content blocks"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heroBanners": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.banner"
+    },
+    "featuredProductsTitle": {
+      "type": "string",
+      "maxLength": 100,
+      "default": "Productos Destacados"
+    },
+    "offersTitle": {
+      "type": "string",
+      "maxLength": 100,
+      "default": "Ofertas del Mes"
+    },
+    "categoryHighlightsTitle": {
+      "type": "string",
+      "maxLength": 100,
+      "default": "Categorías"
+    },
+    "promotionalBanners": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.banner"
+    },
+    "categoryHighlights": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category"
+    }
+  }
+}

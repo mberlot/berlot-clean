@@ -1,0 +1,47 @@
+import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Novedades — Berlot Clean',
+};
+
+export default function NovedadesPage() {
+  return (
+    <div className="w-full bg-ivory min-h-screen">
+      {/* Breadcrumb */}
+      <div className="w-full border-b border-warm-border px-4 lg:px-[48px] py-3">
+        <nav className="flex items-center gap-2">
+          <Link
+            href="/"
+            className="font-mono text-[10px] font-medium tracking-[1px] uppercase text-[#666666] hover:text-text-ink transition-colors"
+          >
+            Inicio
+          </Link>
+          <span className="font-mono text-[10px] text-[#666666]">/</span>
+          <span className="font-mono text-[10px] font-medium tracking-[1px] uppercase text-text-ink">
+            Novedades
+          </span>
+        </nav>
+      </div>
+
+      {/* Placeholder content */}
+      <div className="flex flex-col items-center justify-center py-[120px] px-4 text-center gap-6">
+        <span className="font-mono text-[11px] font-medium tracking-[2px] uppercase text-text-muted border border-warm-border px-4 py-2">
+          EN DESARROLLO
+        </span>
+        <h1 className="font-serif font-normal text-[32px] lg:text-[48px] text-text-ink">
+          Página en desarrollo
+        </h1>
+        <p className="font-sans text-base text-text-dim max-w-md leading-[1.6]">
+          Pronto vas a poder ver todos nuestros productos nuevos acá. Mientras tanto, explorá el catálogo completo.
+        </p>
+        <Link
+          href="/categorias"
+          className="inline-block bg-ink text-ivory font-mono text-[12px] font-medium tracking-[2px] uppercase px-8 py-4 hover:bg-ink/85 transition-colors mt-2"
+        >
+          VER CATÁLOGO
+        </Link>
+      </div>
+    </div>
+  );
+}
