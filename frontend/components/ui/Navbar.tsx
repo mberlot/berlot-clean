@@ -1,25 +1,26 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { useCart } from '@/features/cart/CartContext';
-import { formatPrice } from '@/lib/utils';
-import type { Category } from '@/types';
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { useCart } from "@/features/cart/CartContext";
+import { formatPrice } from "@/lib/utils";
+import type { Category } from "@/types";
 
 interface NavbarProps {
   categories: Category[];
 }
 
 const NAV_LINKS = [
-  { label: 'TIENDA', href: '/categorias' },
-  { label: 'CATEGORÍAS', href: '/categorias' },
-  { label: 'NOSOTROS', href: '/about' },
-  { label: 'CONTACTO', href: '/contacto' },
+  { label: "TIENDA", href: "/categorias" },
+  { label: "CATEGORÍAS", href: "/categorias" },
+  { label: "NOSOTROS", href: "/about" },
+  { label: "CONTACTO", href: "/contacto" },
 ];
 
 export function Navbar({ categories }: NavbarProps) {
-  const { totalItems, totalPrice, items, removeItem, updateQuantity } = useCart();
+  const { totalItems, totalPrice, items, removeItem, updateQuantity } =
+    useCart();
   const [cartOpen, setCartOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -27,14 +28,13 @@ export function Navbar({ categories }: NavbarProps) {
     <>
       <header className="sticky top-0 z-50 bg-ivory border-b border-warm-border">
         <div className="flex items-stretch h-[64px] px-8 lg:px-[48px]">
-
           {/* ── Logo ────────────────────────────────────── */}
           <Link
             href="/"
             className="flex items-center flex-shrink-0 pr-10 border-r border-warm-border"
           >
             <span className="font-serif font-bold text-[22px] tracking-[1px] text-text-ink whitespace-nowrap">
-              {process.env.NEXT_PUBLIC_SITE_NAME ?? 'Berlot Clean'}
+              {process.env.NEXT_PUBLIC_SITE_NAME ?? "Berlot Clean"}
             </span>
           </Link>
 
@@ -59,8 +59,18 @@ export function Navbar({ categories }: NavbarProps) {
               aria-label="Buscar"
               className="flex items-center px-5 border-l border-warm-border text-text-ink hover:text-navy transition-colors"
             >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={1.5}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"
+                />
               </svg>
             </Link>
 
@@ -70,8 +80,18 @@ export function Navbar({ categories }: NavbarProps) {
               aria-label={`Mi pedido, ${totalItems} artículos`}
               className="relative flex items-center px-5 border-l border-warm-border text-text-ink hover:text-navy transition-colors"
             >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0" />
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={1.5}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
               </svg>
               {totalItems > 0 && (
                 <span className="absolute top-3 right-3 bg-ink text-ivory font-mono text-[9px] w-4 h-4 flex items-center justify-center">
@@ -94,11 +114,21 @@ export function Navbar({ categories }: NavbarProps) {
               aria-label="Menú"
               className="md:hidden flex items-center px-5 border-l border-warm-border text-text-ink"
             >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={1.5}
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d={menuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
+                  d={
+                    menuOpen
+                      ? "M6 18L18 6M6 6l12 12"
+                      : "M4 6h16M4 12h16M4 18h16"
+                  }
                 />
               </svg>
             </button>
@@ -152,7 +182,7 @@ export function Navbar({ categories }: NavbarProps) {
 }
 
 // ─── Cart sidebar ─────────────────────────────────────────────
-type CartItem = ReturnType<typeof useCart>['items'][number];
+type CartItem = ReturnType<typeof useCart>["items"][number];
 
 function CartSidebar({
   items,
@@ -166,8 +196,8 @@ function CartSidebar({
   totalItems: number;
   totalPrice: number;
   onClose: () => void;
-  removeItem: (id: string) => void;
-  updateQuantity: (id: string, qty: number) => void;
+  removeItem: (id: number) => void;
+  updateQuantity: (id: number, qty: number) => void;
 }) {
   return (
     <>
@@ -175,14 +205,26 @@ function CartSidebar({
       <aside className="fixed right-0 top-0 h-full w-full max-w-sm bg-ivory z-50 flex flex-col border-l border-warm-border">
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-5 border-b border-warm-border">
-          <h2 className="font-serif font-normal text-xl text-text-ink">Mi Pedido</h2>
+          <h2 className="font-serif font-normal text-xl text-text-ink">
+            Mi Pedido
+          </h2>
           <button
             onClick={onClose}
             aria-label="Cerrar"
             className="text-text-muted hover:text-text-ink transition-colors"
           >
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={1.5}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
           </button>
         </div>
@@ -195,7 +237,10 @@ function CartSidebar({
             </p>
           ) : (
             items.map((item) => (
-              <div key={item.productId} className="flex items-start gap-4 border-b border-warm-border pb-5">
+              <div
+                key={item.productId}
+                className="flex items-start gap-4 border-b border-warm-border pb-5"
+              >
                 {item.image && (
                   <Image
                     src={item.image}
@@ -206,18 +251,28 @@ function CartSidebar({
                   />
                 )}
                 <div className="flex-1 min-w-0">
-                  <p className="font-serif font-normal text-sm text-text-ink leading-snug">{item.name}</p>
-                  <p className="font-serif italic text-gold text-sm mt-0.5">{formatPrice(item.price)}</p>
+                  <p className="font-serif font-normal text-sm text-text-ink leading-snug">
+                    {item.name}
+                  </p>
+                  <p className="font-serif italic text-gold text-sm mt-0.5">
+                    {formatPrice(item.price)}
+                  </p>
                   <div className="flex items-center gap-2 mt-2">
                     <button
-                      onClick={() => updateQuantity(item.productId, item.quantity - 1)}
+                      onClick={() =>
+                        updateQuantity(item.productId, item.quantity - 1)
+                      }
                       className="w-6 h-6 flex items-center justify-center border border-warm-border text-text-ink font-mono text-sm hover:bg-warm-border transition-colors"
                     >
                       −
                     </button>
-                    <span className="font-mono text-xs w-6 text-center">{item.quantity}</span>
+                    <span className="font-mono text-xs w-6 text-center">
+                      {item.quantity}
+                    </span>
                     <button
-                      onClick={() => updateQuantity(item.productId, item.quantity + 1)}
+                      onClick={() =>
+                        updateQuantity(item.productId, item.quantity + 1)
+                      }
                       className="w-6 h-6 flex items-center justify-center border border-warm-border text-text-ink font-mono text-sm hover:bg-warm-border transition-colors"
                     >
                       +
@@ -229,8 +284,18 @@ function CartSidebar({
                   aria-label="Eliminar"
                   className="text-text-muted hover:text-text-ink transition-colors mt-0.5"
                 >
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
                   </svg>
                 </button>
               </div>
@@ -243,9 +308,11 @@ function CartSidebar({
           <div className="p-6 border-t border-warm-border space-y-4">
             <div className="flex justify-between items-baseline">
               <span className="font-mono text-[11px] tracking-widest uppercase text-text-muted">
-                {totalItems} {totalItems !== 1 ? 'artículos' : 'artículo'}
+                {totalItems} {totalItems !== 1 ? "artículos" : "artículo"}
               </span>
-              <span className="font-serif italic text-gold text-xl">{formatPrice(totalPrice)}</span>
+              <span className="font-serif italic text-gold text-xl">
+                {formatPrice(totalPrice)}
+              </span>
             </div>
             <a
               href={`https://wa.me/?text=${encodeURIComponent(buildWhatsAppMessage(items))}`}
@@ -266,6 +333,8 @@ function buildWhatsAppMessage(items: CartItem[]): string {
   const lines = items.map(
     (i) => `• ${i.quantity}x ${i.name} — ${formatPrice(i.price * i.quantity)}`,
   );
-  const total = formatPrice(items.reduce((s, i) => s + i.price * i.quantity, 0));
-  return `¡Hola! Quisiera consultar sobre el siguiente pedido:\n\n${lines.join('\n')}\n\nTotal estimado: ${total}`;
+  const total = formatPrice(
+    items.reduce((s, i) => s + i.price * i.quantity, 0),
+  );
+  return `¡Hola! Quisiera consultar sobre el siguiente pedido:\n\n${lines.join("\n")}\n\nTotal estimado: ${total}`;
 }
